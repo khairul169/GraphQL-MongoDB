@@ -43,10 +43,16 @@ items.push(new ItemType(1, 'Stone'));
 items.push(new ItemType(2, 'Wood'));
 items.push(new ItemType(3, 'Metal'));
 
-const query = {
-    hello: () => 'Hello world!',
-    items: () => items,
-    addItem: ({input}) => {
+class RootValue {
+    hello() {
+        return "Hello world!";
+    }
+
+    items() {
+        return items;
+    }
+
+    addItem({input}) {
         const item = new ItemType(items.length + 1, input.name);
         items.push(item);
         return item;
@@ -56,7 +62,7 @@ const query = {
 app.use('/', egql({
     graphiql: true,
     schema,
-    rootValue: query
+    rootValue: new RootValue
 }));
 
 app.listen(5050, () => {
