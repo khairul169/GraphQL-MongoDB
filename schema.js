@@ -8,7 +8,7 @@ const schema = `
     }
 
     input ItemInput {
-        name: String!,
+        name: String,
         amount: Int
     }
 
@@ -18,7 +18,9 @@ const schema = `
     }
 
     type Mutation {
-        addItem(input: ItemInput!): Item
+        createItem(input: ItemInput!): Item,
+        setItem(id: ID!, input: ItemInput!): Item,
+        deleteItem(id: ID!): Item
     }
 `;
 

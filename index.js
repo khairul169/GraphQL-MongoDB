@@ -17,6 +17,9 @@ mongoose.connect(dbServer, {useUnifiedTopology: true, useNewUrlParser: true})
 mongoose.connection.on('connected', () => console.log('db connected'));
 mongoose.connection.on('error', error => console.log('db error: ', error));
 
+// Configure mongoose
+mongoose.set('useFindAndModify', false);
+
 // Configure express http server
 const app = express();
 
