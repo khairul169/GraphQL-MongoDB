@@ -1,22 +1,23 @@
-import {items} from './mocks';
-import {ItemType} from './types';
+import ItemsModel from './models/itemsModel';
 
-const hello = () => {
-    return "Hello world!";
-}
-
-const getItems = () => {
+const items = async () => {
+    const items = await ItemsModel.find();
     return items;
 }
 
+const item = async ({id}) => {
+    const item = await ItemsModel.findById(id);
+    return item;
+}
+
 const addItem = ({input}) => {
-    const item = new ItemType(items.length + 1, input.name);
-    items.push(item);
+    const item = new ItemsModel(input);
+    item.save();
     return item;
 }
 
 export default {
-    hello,
-    items: getItems,
+    items,
+    item,
     addItem
 }

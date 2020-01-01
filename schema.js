@@ -2,18 +2,19 @@ import {buildSchema} from 'graphql';
 
 const schema = `
     type Item {
-        id: Int!,
+        id: ID!,
         name: String,
-        test: String
+        amount: Int
     }
 
     input ItemInput {
-        name: String!
+        name: String!,
+        amount: Int
     }
 
     type Query {
-        hello: String,
-        items: [Item]
+        items: [Item],
+        item(id: ID!): Item
     }
 
     type Mutation {
