@@ -16,9 +16,11 @@
   "author": "Khairul Hidayat",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
-    "graphql": "^14.5.8"
+    "graphql": "^14.5.8",
+    "mongoose": "^5.8.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
