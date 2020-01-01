@@ -1,0 +1,26 @@
+{
+  "name": "graphql-mongodb",
+  "version": "1.0.0",
+  "description": "GraphQL and MongoDB test project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "nodemon index.js"
+  },
+  "keywords": [
+    "graphql",
+    "mongodb",
+    "test",
+    "project"
+  ],
+  "author": "Khairul Hidayat",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
