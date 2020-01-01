@@ -5,43 +5,52 @@ import {buildSchema} from 'graphql';
 const app = express();
 
 const schema = buildSchema(`
+    type Item {
+        id: Int!,
+        name: String,
+        test: String
+    }
+
+    input ItemInput {
+        name: String!
+    }
+
     type Query {
         hello: String,
         items: [Item]
     }
 
-    type Item {
-        id: Int!,
-        name: String
+    type Mutation {
+        addItem(input: ItemInput!): Item
     }
 `);
 
-const items = [
-    {
-        id: 1,
-        name: 'Item A'
-    },
-    {
-        id: 2,
-        name: 'Item B'
-    },
-    {
-        id: 3,
-        name: 'Item C'
-    },
-    {
-        id: 4,
-        name: 'Item D'
-    },
-    {
-        id: 5,
-        name: 'Item E'
-    },
-];
+class ItemType {
+    constructor(id, name = '') {
+        this.id = id;
+        this.name = name;
+    }
+
+    test() {
+        return this.id + ' - ' + this.name;
+    }
+}
+
+const items = [];
+
+// Populate default items
+items.push(new ItemType(1, 'Stone'));
+items.push(new ItemType(2, 'Wood'));
+items.push(new ItemType(3, 'Metal'));
 
 const query = {
     hello: () => 'Hello world!',
-    items: () => items
+    items: () => items,
+    addItem: ({input}) => {
+        const item = new ItemType(items.length + 1, input.name);
+        items.push(item);
+        return item;
+    }
 }
 
 app.use('/', egql({
