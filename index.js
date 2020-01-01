@@ -6,12 +6,42 @@ const app = express();
 
 const schema = buildSchema(`
     type Query {
-        hello: String
+        hello: String,
+        items: [Item]
+    }
+
+    type Item {
+        id: Int!,
+        name: String
     }
 `);
 
+const items = [
+    {
+        id: 1,
+        name: 'Item A'
+    },
+    {
+        id: 2,
+        name: 'Item B'
+    },
+    {
+        id: 3,
+        name: 'Item C'
+    },
+    {
+        id: 4,
+        name: 'Item D'
+    },
+    {
+        id: 5,
+        name: 'Item E'
+    },
+];
+
 const query = {
-    hello: () => 'Hello world!'
+    hello: () => 'Hello world!',
+    items: () => items
 }
 
 app.use('/', egql({
