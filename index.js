@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import egql from 'express-graphql';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -22,6 +23,8 @@ mongoose.set('useFindAndModify', false);
 
 // Configure express http server
 const app = express();
+
+app.use(cors());
 
 app.use('/', egql({
     graphiql: true,
