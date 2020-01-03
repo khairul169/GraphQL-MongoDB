@@ -52,11 +52,11 @@ const doQuery = async (query, variables) => {
 
 const refreshItems = async () => {
     const content = $('#content');
-    content.html('<p>Loading...</p>');
+    content.html('<p class="loading">Loading...</p>');
 
     const {data} = await doQuery(FETCH_ITEMS);
     content.html(data.items.map(item => {
-        return `<p style="cursor: pointer;" class="item" data-itemid="${item.id}">${item.name} (${item.amount})</p>`;
+        return `<p class="item" data-itemid="${item.id}">${item.name} (${item.amount})</p>`;
     }));
     $('.item').click(async function () {
         try {

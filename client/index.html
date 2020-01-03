@@ -2,20 +2,22 @@
 <html>
     <head>
         <title>GraphQL Test Client</title>
+        <link rel="stylesheet" href="style.css" />
         <script src="jquery-3.4.1.min.js"></script>
         <script src="client.js"></script>
     </head>
 
     <body>
         <h1>GraphQL Test Client</h1>
-        <div id="content"></div>
-        <hr />
-        <form id="form">
+        <div id="content" class="card"></div>
+
+        <form id="form" class="card">
             <input type="hidden" id="itemid" />
             <p>Item Name:</p>
-            <input type="text" id="name" /><br />
+            <input type="text" id="name" />
             <p>Item Amount:</p>
             <input type="text" id="amount" />
+            <br />
             <button type="submit" id="submit">Add</button>
             <button type="button" id="delete">Delete</button>
             <button type="reset" id="reset">Reset</button>

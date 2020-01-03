@@ -1,0 +1,76 @@
+p, h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    margin: 0 0 16px 0;
+    padding: 0;
+}
+
+p {
+    margin: 0 0 12px 0;
+    padding: 0;
+}
+
+body {
+    background: #efefef;
+    margin: 0;
+    padding: 16px;
+}
+
+.card {
+    background: #fff;
+    box-shadow: 0 5px 5px 1px #ccc;
+    border-radius: 3px;
+}
+
+#content .loading {
+    display: block;
+    margin: 0;
+    padding: 24px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#content .item {
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    padding: 16px 24px;
+}
+
+#content .item:hover {
+    background: #f6f6f6;
+}
+
+#form {
+    margin-top: 16px;
+    padding: 16px;
+}
+
+#form p {
+    margin: 0;
+}
+
+input[type='text'] {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #767676;
+    padding: 8px 0;
+    font-size: 16px;
+    margin-bottom: 16px;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+button {
+    background: #00897B;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
